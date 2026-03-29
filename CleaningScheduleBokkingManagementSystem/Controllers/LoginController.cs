@@ -8,7 +8,7 @@ namespace CleaningScheduleBokkingManagementSystem.Controllers
 {
     public class LoginController : Controller
     {
-        BookingScheduleManagementDBEntities db = new BookingScheduleManagementDBEntities();
+        BookingScheduleManagementDBEntities2 db = new BookingScheduleManagementDBEntities2();
         public int userId;
         // GET: Login
         public ActionResult Login()

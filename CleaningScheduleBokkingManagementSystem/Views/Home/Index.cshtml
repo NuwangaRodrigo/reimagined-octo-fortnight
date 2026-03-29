@@ -9,23 +9,22 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
     <style>
         body {
-            font-family: Tahoma, sans-serif;
-            background-color: #1b1b1b;
-            background-size: cover;
-            background-repeat: no-repeat;
+            
+
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 0px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 650px;
-            width: 1200px;
+            min-height: 95vh;
+            max-height: 650px;
+            background: url(/Images/calendar2.jpg) no-repeat center center fixed; /* Full background picture */
+            background-size: cover;
+            width: 1300px;
+            height: 600px
         }
 
-        .navbar {
-            background-color: #1b1b1b; /* Navbar background color */
-        }
-
+       
         .navbar-nav li a {
             color: white !important; /* Navbar link color */
         }
@@ -35,7 +34,6 @@
             }
 
         .navbar-nav li {
-            display: #1b1b1b;
             text-align: center;
             padding: 10px;
         }
@@ -51,41 +49,54 @@
             margin-right: 10px;
             margin-top: 10px;
             width: 1050px;
-            
+            height: 600px;
+            background-color: rgba(27, 27, 27, 0.8);
         }
 
         #calendar {
-            background-color: #1b1b1b; 
-            color: white; 
-            margin-top: 10px; 
-            border-radius: 10px; 
+            color: white;
+            margin-top: 10px;
+            border-radius: 10px;
             padding: 10px;
+            /* background-color: rgba(27, 27, 27, 0.8);*/ /* Form background color with opacity */
         }
 
         .menu-container {
-            background-color: #1b1b1b; /* Background color for the menu container */
-            padding: 10px; /* Add padding to the menu container */
-            border-radius: 10px; /* Add border radius to the menu container */
-
-            width: 120px; /* Set the width of the menu container */
-            height: 650px;
-            align-content: flex-end;
+            width: 185px;
+            min-height: 60vh;
+            max-height: 500px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            /*            background-color: rgba(27, 27, 27, 0.8);*/
         }
 
         .profile-photo {
             width: 100px; /* Adjust the size of the profile photo */
             height: 100px;
             border-radius: 50%; /* Make it circular */
+            border-color: black;
+            border-width: 2px;
             margin-bottom: 20px;
             text-align: center; /* Add space below the photo */
         }
 
         .profile-name {
-            margin-bottom: 20px; /* Add space below the name */
+            margin-bottom: 10px; /* Add space below the name */
             font-size: 20px;
-            color: white;
+            color: black;
+            font-weight: bold;
             text-align: left; /* Text color */
         }
+
+        .admin {
+            margin-bottom: 20px; /* Add space below the name */
+            font-size: 16px;
+            color: black;
+            text-align: left; /* Text color */
+        }
+
 
         .menu-nav {
             list-style-type: none; /* Remove bullet points */
@@ -95,62 +106,69 @@
         }
 
         .nav-item {
-            margin-bottom: 10px; /* Add space between items */
+            margin-bottom: 0px; /* Add space between items */
         }
 
         .nav-link {
-            color: white !important; /* Link color */
+            color: black !important; /* Link color */
+            font-weight: bold;
+            font-size: 18px;
         }
 
             .nav-link:hover {
                 color: #337ab7 !important; /* Link color on hover */
             }
+
+        .h2 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    
-        <div class="container-fluid">
-            <div class="row">
-                
-                <div class="col-md-2">
-                    <div class="menu-container">
-                        
-                        <div class="text-left">
-                            <img src="~/Images/ProfilePhoto.png" alt="Profile Photo" class="profile-photo">
-                            <br /><br />
-                        </div>
-                        <div class="profile-name">John Doe</div>
-                        <br /><br /><br /><br />
-                        <ul class="menu-nav">
-                            <li class="nav-item" align="left">
-                                @Html.ActionLink("Register", "Register", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <br />
-                            <li class="nav-item" align="left">
-                                @Html.ActionLink("Group", "Group", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <br />
 
-                            <li class="nav-item" align="left">
-                                @Html.ActionLink("Log Out", "LogOut", "Home", null, new { @class = "nav-link" })
-                            </li>
-                            <br />
+    <div class="container-fluid">
+        <div class="row row-mr-2">
 
-                        </ul>
+            <div class="col-md-2">
+                <div class="menu-container">
+                    <br /><br /><br />
+                    <div class="text-left">
+                        <img src="~/Images/ProfilePhoto.png" alt="Profile Photo" class="profile-photo">
+                        <br /><br />
                     </div>
-                </div>
-                <br />
-                <h2 class="text-white">Book Now Your Slot</h2>
-                <div class="col-md-9">
-                    <div id="calendar-container">
+                    <div class="profile-name" id="profile-name"></div>
+                    <div class="admin" id="admin"></div>
+                    <br /><br /><br /><br />
+                    <ul class="menu-nav">
+                        <li class="nav-item" align="left">
+                            @Html.ActionLink("Schedule", "Index", "Home", null, new { @class = "nav-link" })
+                        </li>
+                        <br />
+                        <li class="nav-item" align="left">
+                            @Html.ActionLink("Group", "Group", "Home", null, new { @class = "nav-link" })
+                        </li>
+                        <br />
 
-                        <div id="calendar"></div>
-                    </div>
+                        <li class="nav-item" align="left">
+                            @Html.ActionLink("Log Out", "Login", "Login", null, new { @class = "nav-link" })
+                        </li>
+                        <br />
+
+                    </ul>
                 </div>
             </div>
+            <br />
+            <h3 class="text-white">Book Now Your Slot</h3>
+            <div class="col-md-9">
+                <div id="calendar-container">
+
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
-   
+
 
     <div id="MyModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -164,12 +182,41 @@
                         <span class="glyphicon glyphicon-remove"></span> Remove
                     </button>
                     <button id="btnEdit" class="btn btn-primary btn-sm pull-right" style="margin-right: 5px;">
-                        <span class="glyphicon glyphicon-pencil"></span> Choose a slot
+                        <span class="glyphicon glyphicon-pencil"></span> Assign Me
                     </button>
                     <p id="pDeatils"></p>
                 </div>
                 <div class="modal-footer" style="background-color: #1b1b1b;">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="color: #1b1b1b;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AddEventModal -->
+    <div id="AddEventModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Event</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Form to add an event -->
+                    <form id="addEventForm">
+                        
+                        <div class="form-group">
+                            <label for="eventDate">Event Date:</label>
+                            <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+                        </div>
+
+
+                        <button id="btnAdd" type="submit" class="btn btn-primary">Add Event</button>
+                        <button id="btnAddDelete" type="submit" class="btn btn-primary">Delete Event</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -236,23 +283,38 @@
                         console.log("Event clicked:", calEvent);
                         $('#MyModal #scheduleTitle').text(calEvent.title);
                         var $description = $('<div />');
-                        $description.append($('<p />').html('<b>Start Date:</b>' + calEvent.start.format("DD-MM-YYYY HH-mm-a")));
-                        $description.append($('<p />').html('<b>Assigned Person Name:</b>' + calEvent.description));
+                        $description.append($('<p />').html('<b>Scheduled Date:</b>' + calEvent.start.format("DD-MM-YYYY")));
+                        $description.append($('<p />').html('<b>Assigned to:</b>' + calEvent.description));
 
                         $('#MyModal #pDeatils').empty().html($description);
                         $(document).ready(function () {
                             // Show modal when the page loads
                             $('#MyModal').modal('show');
                         });
+                    },
+                    selectable: true,
+                    select: function (start, end) {
+                        if (start.isBefore(moment(), 'day')) {
+                            $('#calendar').fullCalendar('unselect');
+                            $('#MyModal').modal('hide');
+                            return;
+                        }
+                        SelectedEvent = {
+                            SlotNumber: 0,
+                            Start_Date: start,
+                            End_Date: end
+                        };
+                        OpenaddEventForm();
+                        $('#Calender').fullCalendar('unselect');
                     }
 
                 });
             }
 
             $('#btnEdit').click(function () {
-            
+                console.log(selectedEvent.description);
                 if (selectedEvent != null) {
-                    if (selectedEvent.description == 'Choose a slot') {
+                    if (selectedEvent.description == 'Unassigned') {
                         $.ajax({
                             type: "POST",
                             url: "/home/ChooseScedule",
@@ -278,9 +340,97 @@
                 //FetchScheduleAndRenderCalendar(); // Refresh calendar
             });
 
+            $('#btnAdd').click(function () {
+                // Date validation
+                var eventDate = $('#eventDate').val().trim();
+                if (eventDate === '') {
+                    alert('Date required');
+                    return;
+                }
+
+              
+
+                var data = {
+                    eventDate: eventDate,
+                    
+                };
+
+                AddScheduleData(data);
+            });
+            function OpenaddEventForm() {
+                if (selectedEvent != null) {
+
+                    $('#eventDate').val(selectedEvent.start.format('DD/MM/YYYY HH:mm A'));
+
+                }
+                $('#MyModal').modal('hide');
+                $('#AddEventModal').modal();
+
+            }
+            function AddScheduleData(data) {
+                $.ajax({
+                    type: "POST",
+                    url: "/home/AddSchedule",
+                    data: data,
+                    success: function (response) {
+                        if (response.success) {
+                            // Refresh calendar
+                            FetchScheduleAndRenderCalendar();
+                            $('#AddEventModal').modal('hide');
+                        } else {
+                            alert('Failed to add slot: ' + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Failed to add slot');
+                    }
+                });
+            }
+
+            function GetCurrentUserAdmin() {
+
+                $.ajax({
+                    url: '/home/GetCurrentUserAdmin',
+                    type: 'GET',
+                    success: function (data) {
+
+                        $('.admin').text(data);
+                    },
+                    error: function () {
+                        // Handle errors if the request fails
+                        console.error('Failed to fetch user name.');
+                    }
+                });
+            }
+            $(document).ready(function () {
+                GetCurrentUserAdmin();
+            });
+
+
+
+            function getCurrentUserName() {
+
+                $.ajax({
+                    url: '/home/GetCurrentUserName',
+                    type: 'GET',
+                    success: function (data) {
+
+                        $('.profile-name').text(data);
+                    },
+                    error: function () {
+                        // Handle errors if the request fails
+                        console.error('Failed to fetch user name.');
+                    }
+                });
+            }
+
+            // Call getCurrentUserName when the document is ready
+            $(document).ready(function () {
+                getCurrentUserName();
+            });
 
             $('#btnDelete').click(function () {
-              
+
                 if (selectedEvent != null && confirm('Are you sure?')) {
                     $.ajax({
                         type: "POST",
@@ -292,9 +442,40 @@
                                 // Refresh calendar
                                 FetchScheduleAndRenderCalendar();
                                 $(document).ready(function () {
-                                 
+
                                     $('#MyModal').modal('hide');
                                 });
+                            }
+                            else {
+                                alert('Unauthorized or schedule not found');
+                            }
+                        },
+                        error: function () {
+                            alert('Failed');
+                        }
+                    });
+                }
+            });
+
+            $('#btnAddDelete').click(function () {
+
+                if (selectedEvent != null && confirm('Are you sure?')) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/home/DeleteAddedSchedule",
+                        data: { 'weekNumber': selectedEvent.WeekNumber, 'slotNumber': selectedEvent.SlotNumber },
+                        success: function (data) {
+
+                            if (data.status) {
+                                // Refresh calendar
+                                FetchScheduleAndRenderCalendar();
+                                $(document).ready(function () {
+
+                                    $('#AddEventModal').modal('hide');
+                                });
+                            }
+                            else {
+                                alert('Unauthorized or schedule not found');
                             }
                         },
                         error: function () {
@@ -309,3 +490,7 @@
 
 </body>
 </html>
+
+
+
+

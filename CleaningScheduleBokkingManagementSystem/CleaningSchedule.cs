@@ -17,13 +17,15 @@ namespace CleaningScheduleBokkingManagementSystem
         public int WeekNumber { get; set; }
         public int SlotNumber { get; set; }
         public Nullable<int> Resident_Id { get; set; }
+        public int Group_Id { get; set; }
         public Nullable<System.DateTime> Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
         public Nullable<bool> Is_Cleaned { get; set; }
         public Nullable<bool> Is_Verified { get; set; }
-        public string Theme_Colour { get; set; }
         public bool Is_FullDay { get; set; }
+        public string Theme_Colour { get; set; }
     
+        public virtual GROUP GROUP { get; set; }
         public virtual RESIDENT RESIDENT { get; set; }
     }
 }

@@ -138,67 +138,74 @@
     <Content Include="App_Data\ScheduleBookingDB_log.ldf">
       <DependentUpon>ScheduleBookingDB.mdf</DependentUpon>
     </Content>
-    <Content Include="BookingScheduleManagementModel.Context.tt">
+    <Content Include="BookingScheduleModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookingScheduleManagementModel.edmx</DependentUpon>
-      <LastGenOutput>BookingScheduleManagementModel.Context.cs</LastGenOutput>
+      <DependentUpon>BookingScheduleModel.edmx</DependentUpon>
+      <LastGenOutput>BookingScheduleModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="BookingScheduleManagementModel.tt">
+    <Content Include="BookingScheduleModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookingScheduleManagementModel.edmx</DependentUpon>
-      <LastGenOutput>BookingScheduleManagementModel.cs</LastGenOutput>
+      <DependentUpon>BookingScheduleModel.edmx</DependentUpon>
+      <LastGenOutput>BookingScheduleModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\28949.jpg" />
     <Content Include="Images\bgimage.png" />
+    <Content Include="Images\calendar.jpg" />
+    <Content Include="Images\calendar2.jpg" />
+    <Content Include="Images\calendar3.jpg" />
+    <Content Include="Images\group1.jpg" />
+    <Content Include="Images\login9.jpg" />
     <Content Include="Images\ProfilePhoto.png" />
+    <Content Include="Images\register1.jpg" />
     <Content Include="Images\tlogo.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BookingScheduleManagementModel.Context.cs">
+    <Compile Include="BookingScheduleModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookingScheduleManagementModel.Context.tt</DependentUpon>
+      <DependentUpon>BookingScheduleModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BookingScheduleManagementModel.cs">
+    <Compile Include="BookingScheduleModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookingScheduleManagementModel.tt</DependentUpon>
+      <DependentUpon>BookingScheduleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="BookingScheduleManagementModel.Designer.cs">
+    <Compile Include="BookingScheduleModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BookingScheduleManagementModel.edmx</DependentUpon>
+      <DependentUpon>BookingScheduleModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="CLEANINGSCHEDULE.cs">
-      <DependentUpon>BookingScheduleManagementModel.tt</DependentUpon>
+      <DependentUpon>BookingScheduleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GROUP.cs">
-      <DependentUpon>BookingScheduleManagementModel.tt</DependentUpon>
+      <DependentUpon>BookingScheduleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESIDENT.cs">
-      <DependentUpon>BookingScheduleManagementModel.tt</DependentUpon>
+      <DependentUpon>BookingScheduleModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="BookingScheduleManagementModel.edmx">
+    <EntityDeploy Include="BookingScheduleModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookingScheduleManagementModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BookingScheduleModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="BookingScheduleManagementModel.edmx.diagram">
-      <DependentUpon>BookingScheduleManagementModel.edmx</DependentUpon>
+    <Content Include="BookingScheduleModel.edmx.diagram">
+      <DependentUpon>BookingScheduleModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />

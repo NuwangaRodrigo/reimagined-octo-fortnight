@@ -13,10 +13,10 @@ namespace CleaningScheduleBokkingManagementSystem
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookingScheduleManagementDBEntities : DbContext
+    public partial class BookingScheduleManagementDBEntities2 : DbContext
     {
-        public BookingScheduleManagementDBEntities()
-            : base("name=BookingScheduleManagementDBEntities")
+        public BookingScheduleManagementDBEntities2()
+            : base("name=BookingScheduleManagementDBEntities2")
         {
         }
     
